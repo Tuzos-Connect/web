@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TUZOS TV</title>
+  <link rel="icon" href="logo1.png" type="image/png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f2f6fc;
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      height: 19%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    header h1 {
+      color: #0b3c91;
+    }
+    nav a {
+      color: #0b3c91;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #06a5ef;
+    }
+    .hero {
+      height: 60vh;
+      background: url('https://images.unsplash.com/photo-1584036561584-b03c19da874c') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .hero h3 {
+      font-size: 2.5rem;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      animation: floatUp 1.2s ease-out forwards;
+      opacity: 0;
+
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+    }
+    .feature {
+      background: #e6eef8;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+    .feature i {
+      font-size: 3rem;
+      color: #06a5ef;
+      margin-bottom: 1rem;
+    }
+    .slider-section {
+      padding: 11rem 4rem;
+      background: #dde9f5;
+    }
+    .swiper-slide img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .info-section {
+      background-color: #ffffff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .info-section img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .info-text {
+      background-color: #f8f9fb;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .info-text h3 {
+      color: #06a5ef;
+      margin-bottom: 1rem;
+    }
+    .info-text p {
+      line-height: 1.8;
+    }
+    .payment-section {
+      padding: 4rem 2rem;
+      background: #f0f4fa;
+    }
+    .payment-section h2 {
+      text-align: center;
+      color: #0b3c91;
+      margin-bottom: 2rem;
+    }
+    .payment-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .payment-cards .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    .payment-cards .card h3 {
+      color: #06a5ef;
+      margin-bottom: 1rem;
+    }
+    .payment-cards .card p {
+      line-height: 1.6;
+    }
+    .payment-cards .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 15px;
+      border: 2px solid transparent; /* borde base */
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .payment-cards .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      border-color: #06a5ef; /* color de borde al hacer hover */
+      box-shadow: 0 0 20px rgba(6, 165, 239, 0.4); /* luz azul */
+    }
+    .paypal-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #0070ba;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .paypal-btn:hover {
+      background-color: #005fa3;
+    }
+    .small {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0b3c91;
+      color: #fff;
+    }
+    .whatsapp-button {
+        position: fixed;
+        bottom: 25px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        z-index: 1000;
+      }
+      .whatsapp-button img {
+        width: 100%;
+        height: 100%;
+        border-radius: 55%;
+        object-fit: cover;
+        background: transparent;
+      }
+    .hover-bounce {
+      transition: transform 0.3s ease;
+    }
+    .hover-bounce:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+    
+    #paquetes {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+      .logo-container {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      
+    
+      .logo {
+        width: 100px;        /* Puedes ajustar el tamaño según necesites */
+        height: 100px;
+        border-radius: 50%;  /* Esto la hace circular */
+        object-fit: cover;   /* Asegura que se recorte correctamente */
+      }
+      
+  </style>
+</head>
+
+
+  <body>
+  
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/525525127226?text=¡Hola!%20Quiero%20más%20información%20sobre%20Tuzos%20Connect." 
+     class="whatsapp-button" 
+     target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" />
+  </a>
+
+  <header>
+    <h1><strong>TUZOS TV</strong></h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#info">Paquetes</a>
+      <a href="#pagos">Pagos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="logo-container">
+      <img src="logo1.png" alt="Logo Tuzos TV" class="logo" />
+    </div>
+  
+  </header>
+
+  <!-- SLIDER arriba de hero -->
+  <section class="slider-section" id="inicio">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="c1.1.jpg" alt="Opción 1" class="hover-bounce"></div>
+        <div class="swiper-slide"><img src="c4.jpg" alt="Opción 4" class="hover-bounce"></div>
+        <div class="swiper-slide"><img src="c5.jpg" alt="Opción 5" class="hover-bounce"></div>
+        <div class="swiper-slide"><img src="c6.jpg" alt="Opción 6" class="hover-bounce"></div>
+      </div>
+    </div>
+  </section>
+  <section class="info-section" id="ordenar" data-aos="fade-up">
+    <div style="text-align: center;">
+      <img src="im1.jpg" alt="Promoción Especial" style="max-width: 50%; border-radius: 10px; margin-bottom: 1rem;">
+      <br>
+      <a href="https://www.paypal.me/tvtuzos/899" target="_blank"
+         style="padding: 1rem 2rem; font-weight: bold; background: #06a5ef; color: white; border: none; border-radius: 10px; text-decoration: none; display: inline-block;">
+        Pedir ahora
+      </a>
+    </div>
+  </section>
+  <section class="hero">
+    <h3 data-aos="fade-up">Disfruta la mejor TV online en Full HD</h3>
+  </section>
+  <section class="info-section" id="info">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h2 style="padding: 1rem 2rem; font-weight: bold; background: #06a5ef; color: white; border: none; border-radius: 10px; cursor: pointer;">
+        ¡¡¡Descubre los 2 increíbles paquetes que tenemos para ti!!!
+      </h2>
+    </div>
+
+    
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <a href="tuzosvip.html" style="display: inline-block; padding: 1rem 2rem; font-weight: bold; background: #06a5ef; color: white; border: none; border-radius: 10px; cursor: pointer; text-decoration: none;">
+        Paquete Tuzo VIP
+      </a>
+    </div>
+
+    
+    
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <a href="tuzosp.html" style="display: inline-block; padding: 1rem 2rem; font-weight: bold; background: #06a5ef; color: white; border: none; border-radius: 10px; cursor: pointer; text-decoration: none;">
+        Paquete Tuzo Premium
+      </a>
+    </div>
+    
+
+  <section class="features" id="servicios">
+    <div class="feature hover-bounce" data-aos="zoom-in">
+      <i class="fas fa-tv"></i>
+      <h3>+10,000 Canales</h3>
+      <p>Deportes, películas, noticias, y más.</p>
+    </div>
+    <div class="feature" data-aos="zoom-in" data-aos-delay="100">
+      <i class="fas fa-film"></i>
+      <h3>Películas Premium</h3>
+      <p>Estrenos actualizados cada semana.</p>
+    </div>
+    <div class="feature" data-aos="zoom-in" data-aos-delay="200">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Multi Dispositivo</h3>
+      <p>Compatible con Android, Smart TV, iOS, Windows.</p>
+    </div>
+  </section>
+
+  
+
+  <section class="payment-section" id="pagos">
+    <h2 data-aos="fade-up">Depositos o Transferencias</h2>
+    <div class="payment-cards">
+      <div class="card hover-bounce" data-aos="fade-up" onclick="copiarYRedirigir('5204166168571992', 'https://www.banamex.com/')">
+        <h3><i class="fas fa-university"></i> Citibanamex</h3>
+        <p><strong>Beneficiario:</strong> Hugo Salazar</p>
+        <p><strong>Tarjeta:</strong> <span class="cuenta">5204 1661 6857 1992</span></p>
+      </div>
+  
+      <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="copiarYRedirigir('4910897102953122', 'https://www.hsbc.com.mx/')">
+        <h3><i class="fas fa-university"></i> HSBC</h3>
+        <p><strong>Beneficiario:</strong> Hugo Salazar</p>
+        <p><strong>Tarjeta:</strong> <span class="cuenta">4910 8971 0295 3122</span></p>
+      </div>
+  
+      <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="copiarYRedirigir('722969010935475465', 'https://www.mercadopago.com.mx/')">
+        <h3><i class="fas fa-wallet"></i> Mercado Pago</h3>
+        <p><strong>Beneficiario:</strong> Hugo Alberto Salazar Moreno</p>
+        <p><strong>CLABE:</strong> <span class="cuenta">722969010935475465</span></p>
+        <p><strong>Institución:</strong> Mercado Pago W</p>
+        <p class="small">Sigue los pasos en tu app bancaria:</p>
+        <ol class="small">
+          <li>Transferir a nueva cuenta</li>
+          <li>Seleccionar "Mercado Pago W"</li>
+          <li>Ingresar Beneficiario y CLABE</li>
+          <li>Confirmar el monto</li>
+        </ol>
+      </div>
+  
+      
+  
+    </div>
+  </section>
+  
+  
+  <script>
+    function copiarYRedirigir(numero, url) {
+      navigator.clipboard.writeText(numero).then(() => {
+        alert("Número copiado. Pega en tu app bancaria.");
+        window.open(url, '_blank');
+      });
+    }
+  </script>
+  
+  
+  
+  
+  
+  <footer id="contacto">
+    <p>&copy; 2025 TUZOS TV. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+
+    new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      }
+    });
+    function mostrarPaquetes() {
+      const section = document.getElementById('paquetes');
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+  </script>
+  
+   
+  </section>
+  
+  <script>
+    function mostrarPaquetes() {
+      <a href="javascript:void(0);" onclick="mostrarPaquetes()">Paquetes</a>
+      const paquetes = document.getElementById("paquetes");
+      paquetes.style.display = "block";
+      paquetes.scrollIntoView({ behavior: "smooth" });
+    }
+
+  </script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 3
+      }
+    }
+  });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+  
+</body>
+</html>

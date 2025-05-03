@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paquete Tuzo VIP - TUZOS TV</title>
+  <link rel="icon" href="logo1.png" type="image/png">
+
+
+  <!-- Fuentes y estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f2f6fc;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      background-color: #e6eef8;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      color: #06a5ef;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+
+    .btn-regresar {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.5rem;
+      background-color: #06a5ef;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-regresar:hover {
+      background-color: #0481bf;
+    }
+
+    .payment-section {
+      padding: 2rem;
+      background: #f0f4fa;
+    }
+
+    .payment-section h2 {
+      text-align: center;
+      color: #0b3c91;
+      margin-bottom: 2rem;
+    }
+
+    .payment-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      border-color: #06a5ef;
+      box-shadow: 0 0 20px rgba(6, 165, 239, 0.4);
+    }
+
+    .paypal-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #0070ba;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+
+    .paypal-btn:hover {
+      background-color: #005fa3;
+    }
+    .payment-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      
+      .card {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.2s ease;
+      }
+      
+      .card:hover {
+        transform: scale(1.03);
+      }
+      
+      .card h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      
+      .card p {
+        font-size: 16px;
+        margin: 10px 0;
+        color: #555;
+      }
+      
+      .card a {
+        display: inline-block;
+        margin: 8px 5px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+      
+      .paypal-btn {
+        background-color: #0070ba;
+      }
+      
+      .btn-regresar {
+        background-color: #28b9cd;
+      }
+      
+      .card a:hover {
+        opacity: 0.85;
+      }
+
+      .paquete-vip {
+        background: linear-gradient(135deg, #51a6f1, #4768ea, #474df0);
+        border-radius: 20px;
+        padding: 30px;
+        color: #ffffff;
+        box-shadow: 0 0 20px rgba(22, 90, 237, 0.3);
+        max-width: 500px;
+        margin: 40px auto;
+        text-align: center;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      
+      .paquete-vip h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #f8f9f9;
+        text-shadow: 0 0 8px #3d99f6;
+      }
+      
+      .lista-beneficios {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 25px;
+        text-align: left;
+      }
+      
+      .lista-beneficios li {
+        margin: 10px 0;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        color: #e0f7ff;
+      }
+      
+      .check {
+        color: #00f7ff;
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 20px;
+        text-shadow: 0 0 6px #27c2c7;
+      }
+      
+      .btn-regresar {
+        display: inline-block;
+        background-color: #3776f6;
+        color: #ffffff;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 0 12px #82e1e5;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .btn-regresar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #4494de;
+      }
+      
+      
+
+
+      header {
+        height: 10%;
+        background-color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      
+      .header-content h1 {
+        font-size: 2.5rem;
+        color: #0b3c91;
+        margin: 0;
+      }
+      
+      .logo-container .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #0b3c91;
+      }
+      
+  </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+          <h1><strong>TUZOS TV</strong></h1>
+          <div class="logo-container">
+            <img src="logo1.png" alt="Logo Tuzos TV" class="logo" />
+          </div>
+        </div>
+      </header>
+    <div class="container paquete-vip" data-aos="fade-up">
+        <h3>✨ Paquete Tuzo VIP ✨</h3>
+        <ul class="lista-beneficios">
+          <li><span class="check">✔️</span> +11,000 canales</li>
+          <li><span class="check">✔️</span> Películas y series actuales</li>
+          <li><span class="check">✔️</span> Más de 51,000 películas</li>
+          <li><span class="check">✔️</span> Más de 11,600 series</li>
+          <li><span class="check">✔️</span> Eventos deportivos</li>
+          <li><span class="check">✔️</span> Calidad HD y Full HD</li>
+        </ul>
+    <a href="index.html" class="btn-regresar">Volver a la página principal</a>
+  </div>
+
+  <section id="paquetes" class="payment-section" data-aos="fade-up">
+    <h2>Paquetes Disponibles</h2>
+    <div class="payment-cards">
+
+        <!-- Tres tarjetas de 1 Mes -->
+        <div class="card">
+          <h3>1 Mes</h3>
+          <p><strong>Precio:</strong> 1 dispositivos por $200 MXN</p>
+          <p>Accede a todo el contenido por un mes completo.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/200" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <div class="card"> <!-- 1 Mes -->
+          <h3>1 Mes</h3>
+          <p><strong>Precio:</strong> 2 dispositivos por $240 MXN</p>
+          <p>Accede a todo el contenido por un mes completo.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/240" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <div class="card"> <!-- 1 Mes -->
+          <h3>1 Mes</h3>
+          <p><strong>Precio:</strong> 3 dispositivos por $300 MXN</p>
+          <p>Accede a todo el contenido por un mes completo.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/300" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <!-- Tres tarjetas de 6 Meses -->
+        <div class="card">
+          <h3>6 Meses</h3>
+          <p><strong>Precio:</strong> 1 dispositivos por $1,000 MXN</p>
+          <p>Ahorra y disfruta medio año de entretenimiento.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/1000" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <div class="card"> <!-- 6 Meses -->
+          <h3>6 Meses</h3>
+          <p><strong>Precio:</strong> 2 dispositivos por $1,380 MXN</p>
+          <p>Ahorra y disfruta medio año de entretenimiento.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/1380" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <div class="card"> <!-- 6 Meses -->
+          <h3>6 Meses</h3>
+          <p><strong>Precio:</strong> 3 dispositivos por $1,650 MXN</p>
+          <p>Ahorra y disfruta medio año de entretenimiento.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/1650" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <!-- Tres tarjetas de 12 Meses -->
+        <div class="card">
+          <h3>12 Meses</h3>
+          <p><strong>Precio:</strong> 1 dispositivos por $2,000 MXN</p>
+          <p>El mejor valor: 1 año completo de acceso.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/2000" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <div class="card"> <!-- 12 Meses -->
+          <h3>12 Meses</h3>
+          <p><strong>Precio:</strong> 2 dispositivos por $2,400 MXN</p>
+          <p>El mejor valor: 1 año completo de acceso.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/2400" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+        <div class="card"> <!-- 12 Meses -->
+          <h3>12 Meses</h3>
+          <p><strong>Precio:</strong> 3 dispositivos por $3,000 MXN</p>
+          <p>El mejor valor: 1 año completo de acceso.</p>
+          <a class="paypal-btn" href="https://www.paypal.me/tvtuzos/3,000" target="_blank">Pagar con PayPal</a>
+          <a href="index.html#pagos" class="btn-regresar">HSBC</a>
+          <a href="index.html#pagos" class="btn-regresar">BANAMEX</a>
+          <a href="index.html#pagos" class="btn-regresar">MERCADO PAGO</a>
+        </div>
+      
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Animaciones -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
